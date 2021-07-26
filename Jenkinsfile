@@ -7,7 +7,7 @@ pipeline {
                      }
                 stage('Build Maven') {
                     steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'devopshint', url: 'https://github.com/devopshint/jenkins...]]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'manisharayudu', url: 'https://github.com/manisharayudu/Terraform_Project.git']]])
 
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
                 
@@ -16,7 +16,7 @@ pipeline {
                 stage('Build Docker Image') {
                     steps {
                         script {
-                            sh 'docker build -t devopshint/my-app-1.0 .'
+                            sh 'docker build -t manisharayudu/my-app-1.0 .'
                 }
             }
         }
